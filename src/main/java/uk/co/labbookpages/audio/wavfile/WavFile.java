@@ -1,3 +1,5 @@
+package uk.co.labbookpages.audio.wavfile;
+
 // Wav file IO class
 // A.Greensted
 // http://www.labbookpages.co.uk
