@@ -45,6 +45,7 @@ public class Test {
 
 			// Write the buffer
 			wavFile.writeFrames(buffer, toWrite);
+		}
 	}
-			
+
 }
