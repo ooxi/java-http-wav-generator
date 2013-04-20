@@ -30,6 +30,9 @@ public class Test {
 
 		// Initialise a local frame counter
 		long frameCounter = 0;
+		
+		// Frequency
+		int frequency = 440;
 
 		// Loop until all frames written
 		while (frameCounter < numFrames) {
@@ -39,8 +42,8 @@ public class Test {
 
 			// Fill the buffer, one tone per channel
 			for (int s = 0; s < toWrite; s++, frameCounter++) {
-				buffer[0][s] = Math.sin(2.0 * Math.PI * 400 * frameCounter / sampleRate);
-				buffer[1][s] = Math.sin(2.0 * Math.PI * 500 * frameCounter / sampleRate);
+				buffer[0][s] = Math.sin(2.0 * Math.PI * frequency * frameCounter / sampleRate);
+				buffer[1][s] = Math.sin(2.0 * Math.PI * frequency * frameCounter / sampleRate);
 			}
 
 			// Write the buffer
