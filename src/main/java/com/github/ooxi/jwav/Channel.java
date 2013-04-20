@@ -23,12 +23,11 @@
 package com.github.ooxi.jwav;
 
 /**
- * Main application generating a wave file on the fly
+ * Currently only stereo is supported
  * 
  * @author ooxi
  */
-public class JWave {
-	
-	public void setFrequency
-	
+public enum Channel {
+	LEFT,
+	RIGHT
 }
