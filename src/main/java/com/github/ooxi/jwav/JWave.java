@@ -32,12 +32,22 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class JWave {
 	
+	private static final int MIN_FREQUENCY = 20;
+	private static final int MAX_FREQUENCY = 50000;
+	
 	private final EnumMap<Channel, AtomicInteger> channels = new EnumMap<Channel, AtomicInteger>(Channel.class) {{
 		for (Channel channel : Channel.values()) {
 			put(channel, new AtomicInteger(440));
 		}
 	}};
 	
-//	public void setFrequency
+	public void setFrequency(Channel channel, int frequency) {
+		if (frequency < MIN_FREQUENCY) {
+			throw new IllegalArgumentException("frequency < "+ MIN_FREQUENCY);
+		}
+		if (frequency > MAX_FREQUENCY) {
+			throw new IllegalArgumentException("frequency > "+ MAX_FREQUENCY);
+		}
+	}
 	
 }
