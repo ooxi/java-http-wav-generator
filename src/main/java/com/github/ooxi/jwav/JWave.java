@@ -22,6 +22,9 @@
  */
 package com.github.ooxi.jwav;
 
+import java.util.EnumMap;
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * Main application generating a wave file on the fly
  * 
@@ -29,6 +32,12 @@ package com.github.ooxi.jwav;
  */
 public class JWave {
 	
-	public void setFrequency
+	private final EnumMap<Channel, AtomicInteger> channels = new EnumMap<Channel, AtomicInteger>(Channel.class) {{
+		for (Channel channel : Channel.values()) {
+			put(channel, new AtomicInteger(440));
+		}
+	}};
+	
+//	public void setFrequency
 	
 }
