@@ -45,7 +45,7 @@ public class Test {
 			// Fill the buffer, one tone per channel
 			for (int s = 0; s < toWrite; s++, frameCounter++) {
 				double amplitude = Math.sin(2.0 * Math.PI * frequency * frameCounter / sampleRate);
-				if (nextFrequency && (Math.abs(amplitude) > 0.999)) {
+				if (nextFrequency && (Math.abs(amplitude) > 0.99)) {
 					nextFrequency = false;
 					frequency += 1;
 				}
