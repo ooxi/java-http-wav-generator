@@ -36,6 +36,9 @@ public class Test {
 
 		// Loop until all frames written
 		while (frameCounter < numFrames) {
+			frequency += 10;
+			System.out.println(frequency);
+			
 			// Determine how many frames to write, up to a maximum of the buffer size
 			long remaining = wavFile.getFramesRemaining();
 			int toWrite = (remaining > 100) ? 100 : (int) remaining;
