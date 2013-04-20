@@ -1,14 +1,15 @@
+/**
+ * Wav file IO class
+ * A.Greensted
+ * http://www.labbookpages.co.uk
+ *
+ * File format is based on the information from
+ * http://www.sonicspot.com/guide/wavefiles.html
+ * http://www.blitter.com/~russtopia/MIDI/~jglatt/tech/wave.htm
+ *
+ * Version 1.0
+ */
 package uk.co.labbookpages.audio.wavfile;
-
-// Wav file IO class
-// A.Greensted
-// http://www.labbookpages.co.uk
-
-// File format is based on the information from
-// http://www.sonicspot.com/guide/wavefiles.html
-// http://www.blitter.com/~russtopia/MIDI/~jglatt/tech/wave.htm
-
-// Version 1.0
 
 import java.io.*;
 
