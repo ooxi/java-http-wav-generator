@@ -33,11 +33,10 @@ public class Test {
 		
 		// Frequency
 		int frequency = 440;
+		boolean nextFrequency = false;
 
 		// Loop until all frames written
 		while (frameCounter < numFrames) {
-			frequency += 10;
-			System.out.println(frequency);
 			
 			// Determine how many frames to write, up to a maximum of the buffer size
 			long remaining = wavFile.getFramesRemaining();
@@ -45,12 +44,19 @@ public class Test {
 
 			// Fill the buffer, one tone per channel
 			for (int s = 0; s < toWrite; s++, frameCounter++) {
-				buffer[0][s] = Math.sin(2.0 * Math.PI * frequency * frameCounter / sampleRate);
-				buffer[1][s] = Math.sin(2.0 * Math.PI * frequency * frameCounter / sampleRate);
+				double amplitude = Math.sin(2.0 * Math.PI * frequency * frameCounter / sampleRate);
+				if (nextFrequency && (Math.abs(amplitude) > 0.999)) {
+					nextFrequency = false;
+					frequency += 1;
+				}
+				
+				buffer[0][s] = Math.sin(amplitude);
+				buffer[1][s] = Math.sin(amplitude);
 			}
 
 			// Write the buffer
 			wavFile.writeFrames(buffer, toWrite);
+			nextFrequency = true;
 		}
 	}
 
